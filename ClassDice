@@ -1,0 +1,57 @@
+Enter file contents hereimport javax.swing.*;
+import java.util.*;
+
+@SuppressWarnings("unused")
+public class Dice {
+  static int RollCount;
+	private static int MNumber;
+	private static int SCounter;
+	static int DisplayRollNumbers;
+	static String NumbersHoldingPen;
+	
+
+	public static int Roll_1_Dice() {
+		// Random
+		int LoopCounter = 0;
+		do {
+			LoopCounter = LoopCounter + 1;
+			Random generator = new Random();
+			int MaxNumber = MNumber;// highest possible roll on dice
+			int Roll = generator.nextInt(MaxNumber) + 1;// roll
+			
+			if (LoopCounter==1) {
+				NumbersHoldingPen= String.valueOf(Roll);
+				}
+			else{
+				NumbersHoldingPen= NumbersHoldingPen+", "+String.valueOf(Roll);
+			}
+		} while (LoopCounter < RollCount);
+		DisplayRollNumbers=Integer.parseInt(NumbersHoldingPen);
+		return DisplayRollNumbers;
+	}
+
+	public void setMNumber(int MaxN) {
+
+		MNumber = MaxN;
+	}
+
+	public int getMNumber() {
+
+		return MNumber;
+	}
+
+	public void setRollCount(int UserNumber) {
+
+		RollCount = UserNumber;
+	}
+
+	public int getRollCount() {
+
+		return RollCount;
+	}
+
+	public int getSRollCount() {
+		SCounter = +1;
+		return SCounter;
+	}
+}
